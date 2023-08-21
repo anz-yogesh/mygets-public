@@ -1,0 +1,59 @@
+{
+    "items": [
+      {
+        "RFx_ID": 27880568,
+        "Reference": "2685",
+        "Title": "Moana Fire Station Seismic Upgrade",
+        "Tender_Type": "NOI",
+        "Close_Date": "10:00 AM 21 Aug 2023 (Pacific/Auckland UTC+12:00)",
+     
+        "Organisation": {
+          "Name": "Fire and Emergency New Zealand",
+          "Avatar": "url_to_avatar_image_for_Fire_and_Emergency_New_Zealand"
+        }
+      },
+      {
+        "RFx_ID": 27797594,
+        "Reference": "1244-01-RFP",
+        "Title": "1244-01-RFP Project Manager Pukekohe SVGA Investment",
+        "Tender_Type": "RFP",
+        "Close_Date": "12:00 PM 21 Aug 2023 (Pacific/Auckland UTC+12:00)",
+        "Organisation": {
+          "Name": "Ministry for the Environment",
+          "Avatar": "url_to_avatar_image_for_Ministry_for_the_Environment"
+        }
+      }
+    ],
+   
+    "columns": [
+      {
+        "columnKey": "rfxid",
+        "label": "RFx ID"
+      },
+      {
+        "columnKey": "reference",
+        "label": "Reference #"
+      },
+      {
+        "columnKey": "title",
+        "label": "Title"
+      },
+      {
+        "columnKey": "tenderType",
+        "label": "Tender Type"
+      },
+      {
+        "columnKey": "closeDate",
+        "label": "Close Date"
+      },
+      {
+        "columnKey": "organisation",
+        "label": "Organisation"
+      },
+      {
+        "columnKey": "action",
+        "label": "Action"
+      }
+    ]
+  }
+  

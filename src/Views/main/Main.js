@@ -6,7 +6,6 @@ const Main = () => {
   return (
     <div>
       <AppHeaderBar />
-
       <Outlet />
     </div>
   );

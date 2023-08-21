@@ -42,8 +42,8 @@ export const UserAvatar = () => (
             <Link to={"/marketplace"}>
               <MenuItem>Marketplace</MenuItem>
             </Link>
-            <MenuItem>Buyer</MenuItem>
-            <MenuItem>Supplier</MenuItem>
+            <MenuItem>Buyer Dashboard</MenuItem>
+            <MenuItem>Supplier Dashboard</MenuItem>
           </MenuGroup>
           <MenuDivider />
           <MenuItem icon={<SettingsCogMultiple24Filled />}>Settings</MenuItem>

@@ -38,7 +38,6 @@ export const UserAvatar = () => (
           <MenuDivider />
           <MenuGroup>
             <MenuGroupHeader>Dashboard</MenuGroupHeader>
-
             <Link to={"/marketplace"}>
               <MenuItem>Marketplace</MenuItem>
             </Link>

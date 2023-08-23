@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  flex-direction: horizontal;
+}
+
+.item {
+  width: 100px;
+  height: 100px;
+  background-color: #ccc;
+  margin: 10px;
+  padding-top: 150px;
+}
+
+@media (max-width: 720px) {
+  .container {
+    max-width: 100%;
+  }
+
+  .query-card {
+    max-width: 480px;
+  }
+}
+
+.query-card {
+  width: 100%;
+  margin: 8px auto;
+}
+
+.query-content {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+}

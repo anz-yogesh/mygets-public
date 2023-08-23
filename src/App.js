@@ -7,6 +7,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import SignUp from "./Views/SignUp/SignUp";
 import EditProfile from "./Views/EditProfile/EditProfile";
 import Main from "./Views/main/Main";
+import TenderQueries from "./Views/TenderQueries/TenderQueries";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -33,6 +34,10 @@ const App = () => {
         {
           path: "editProfile",
           element: <EditProfile />,
+        },
+        {
+          path: "tenderqueries",
+          element: <TenderQueries />,
         },
       ],
     },

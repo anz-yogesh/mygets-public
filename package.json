@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@azure/msal-browser": "~2.31.0",
+    "@azure/msal-react": "~1.4.10",
     "@fluentui/react-components": "^9.29.3",
     "@fluentui/react-search-preview": "^0.1.8",
     "@testing-library/jest-dom": "^5.17.0",

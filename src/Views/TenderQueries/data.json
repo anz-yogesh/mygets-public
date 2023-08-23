@@ -1,0 +1,31 @@
+{
+  "tenderQueries": [
+    {
+      "title": "Due Dates - please reconfirm",
+      "qdate": "Sunday, 30 July 2023 10:41 PM",
+      "status": "Public",
+      "question": "Can you please confirm: Page 1 lists dates as: RFP released: 25 July 2023 ...",
+      "answer": "The dates listed in table 1.2 on page 7 are correct. ...",
+      "adate": "Sunday, 31 August 2023 10:15 AM",
+      "replied": true
+    },
+    {
+      "title": "Query Title Example",
+      "qdate": "Monday, 21 August 2023 10:00 AM",
+      "status": "Not present",
+      "question": "What is the expected delivery date?",
+      "answer": "",
+      "adate": "not present",
+      "replied": false
+    },
+    {
+      "title": "Query Title Example",
+      "qdate": "Tuesday, 22 August 2023 3:30 PM",
+      "status": "Not present",
+      "question": "Can you clarify the requirements for section 5?",
+      "answer": "",
+      "adate": "not present",
+      "replied": false
+    }
+  ]
+}

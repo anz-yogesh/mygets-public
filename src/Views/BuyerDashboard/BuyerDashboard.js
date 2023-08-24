@@ -3,7 +3,7 @@ import { Button } from "@fluentui/react-components";
 
 const BuyerDashboard = () => (
   <div>
-    <Button appearance="primary">BuyerDashboard</Button>
+    <h2>This is Buyer Dashboard</h2>
   </div>
 );
 

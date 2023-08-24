@@ -3,10 +3,11 @@ import MasterTabList from "../../Components/Common/MasterTabList";
 
 const tabs = [
   { value: "tab1", label: "Organisation Details" },
-  { value: "tab2", label: "User Managment" },
-  { value: "tab3", label: "Tender Preference" },
-  { value: "tab4", label: "Subscription" },
-  { value: "tab5", label: "Billing" },
+  { value: "tab2", label: "Users & Role Management" },
+  { value: "tab3", label: "Team Management" },
+  { value: "tab4", label: "Tender Preference" },
+  { value: "tab5", label: "Subscription" },
+  { value: "tab6", label: "Billing" },
 ];
 
 const Setting = () => {

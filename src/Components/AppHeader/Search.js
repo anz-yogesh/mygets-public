@@ -11,7 +11,7 @@ export const Search = (props) => {
           maxWidth: "944px",
           width: "100%",
         }}
-        placeholder="Look for Trends, Messages, Documents and More!"
+        placeholder="Look for trends, messages, documents and more!"
         {...props}
       />
     </div>

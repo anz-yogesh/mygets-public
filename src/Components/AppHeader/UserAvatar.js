@@ -10,9 +10,9 @@ import {
   MenuDivider,
   MenuGroup,
   MenuGroupHeader,
-  Link,
 } from "@fluentui/react-components";
-import { Link as RouterLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+// import { Link as RouterLink } from "react-router-dom";
 // import { Link } from "react-router-dom";
 
 import {
@@ -32,7 +32,7 @@ export const UserAvatar = () => (
       </MenuTrigger>
       <MenuPopover>
         <MenuList>
-          <Link as={RouterLink} to={"/editprofile"}>
+          <Link to={"/editprofile"}>
             <MenuItem>Edit Profile</MenuItem>
           </Link>
           <MenuDivider />
@@ -41,11 +41,17 @@ export const UserAvatar = () => (
             <Link to={"/marketplace"}>
               <MenuItem>Marketplace</MenuItem>
             </Link>
-            <MenuItem>Buyer Dashboard</MenuItem>
-            <MenuItem>Supplier Dashboard</MenuItem>
+            <Link to={"/buyerdashboard"}>
+              <MenuItem>Buyer Dashboard</MenuItem>
+            </Link>
+            <Link to={"/supplierdashboard"}>
+              <MenuItem>Supplier Dashboard</MenuItem>
+            </Link>
           </MenuGroup>
           <MenuDivider />
-          <MenuItem icon={<SettingsCogMultiple24Filled />}>Settings</MenuItem>
+          <Link to={"/setting"}>
+            <MenuItem icon={<SettingsCogMultiple24Filled />}>Settings</MenuItem>
+          </Link>
           <MenuDivider appearance="brand" />
           <MenuItem icon={<SignOut24Filled />}>Logout</MenuItem>
         </MenuList>

@@ -14,6 +14,7 @@ import "./Marketplace.css";
 import data from "./data.json";
 import { ActionButton } from "./ActionButton";
 import { InfoLabel } from "@fluentui/react-components/unstable";
+import MarketplaceSections from "./MarketplaceSections";
 
 export const Marketplace = () => {
   const [menuOpen, setMenuOpen] = React.useState(false);
@@ -30,13 +31,23 @@ export const Marketplace = () => {
   };
   return (
     <div className="marketplaceContainer">
+      <div className="heading">
+        Welcome to the New Zealand Electronic Tenders Marketplace (MyGETS)
+      </div>
+      <MarketplaceSections />
+
       <Table aria-label="Table with cell actions">
         <TableHeader>
           <TableRow>
             {data.columns.map((column, index) => (
               <TableHeaderCell key={column.columnKey}>
                 {column.label}
-                {index === 0 && <InfoLabel info="This is a system generate Tender Code!" required />}{" "}
+                {index === 0 && (
+                  <InfoLabel
+                    info="This is a system generate Tender Code!"
+                    required
+                  />
+                )}{" "}
               </TableHeaderCell>
             ))}
           </TableRow>

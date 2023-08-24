@@ -1,9 +1,9 @@
 import React from "react";
-import "./AppHeader.css";
 import { UserAvatar } from "./UserAvatar";
 import { Bot24Regular, Alert24Regular } from "@fluentui/react-icons";
 import { Search } from "./Search";
 import { makeStyles } from '@fluentui/react-components';
+import "./AppHeader.css";
 
 const useIconStyles = makeStyles({
   icon: {

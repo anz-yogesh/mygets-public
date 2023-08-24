@@ -4,15 +4,17 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import ErrorPage from "./error-page";
+
 import { PublicClientApplication, EventType } from "@azure/msal-browser";
 import { BrowserRouter } from "react-router-dom";
 import { msalConfig } from "./authConfig.js";
-
-import {
-  FluentProvider,
-  teamsLightTheme,
-  teamsDarkTheme,
-} from "@fluentui/react-components";
+import { Marketplace } from "./Views/Marketplace/Marketplace";
+import BuyerDashboard from "./Views/BuyerDashboard/BuyerDashboard";
+import SupplierDashboard from "./Views/SupplierDashboard/SupplierDashboard";
+import Setting from "./Views/Setting/Setting";
+import EditProfile from "./Views/EditProfile/EditProfile";
 
 /**
  * MSAL should be instantiated outside of the component tree to prevent it from being re-instantiated on re-renders.
@@ -40,13 +42,41 @@ msalInstance.addEventCallback((event) => {
   }
 });
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App instance={msalInstance} />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "editprofile",
+        element: <EditProfile />,
+      },
+      {
+        path: "marketplace",
+        element: <Marketplace />,
+      },
+      {
+        path: "buyerdashboard",
+        element: <BuyerDashboard />,
+      },
+      {
+        path: "supplierdashboard",
+        element: <SupplierDashboard />,
+      },
+      {
+        path: "setting",
+        element: <Setting />,
+      },
+    ],
+  },
+]);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <FluentProvider theme={teamsLightTheme}>
-    <React.StrictMode>
-      <App instance={msalInstance} />
-    </React.StrictMode>
-  </FluentProvider>
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

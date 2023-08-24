@@ -1,3 +1,9 @@
 .marketplaceContainer {
-    padding-top: 80px; /* The same height as your header */
-  }
+  padding-top: 8px;
+}
+
+.heading {
+  padding-top: 8px;
+  justify-content: center;
+  align-items: center;
+}

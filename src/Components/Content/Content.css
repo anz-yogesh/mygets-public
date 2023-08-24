@@ -1,0 +1,8 @@
+/* Content.css */
+.contentContainer {
+  margin-top: 48px; /* Same as the height of the AppHeader */
+  height: calc(100% - 48px); /* Take up the rest of the screen */
+  width: 100%;
+  background-color: #fffcfc; /* You can choose a background color as per your design */
+  overflow: auto; /* Allows scrolling if the content overflows */
+}

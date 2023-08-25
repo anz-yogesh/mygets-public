@@ -16,8 +16,11 @@ import {
   SignOut24Filled,
   SettingsCogMultiple24Filled,
 } from "@fluentui/react-icons";
+import { useMsal } from "@azure/msal-react";
+import { b2cPolicies } from "../../authConfig";
 
 export const UserAvatar = () => {
+  const { instance, accounts } = useMsal();
   const linkStyle = { textDecoration: "none" };
 
   // Navigation links including settings
@@ -34,9 +37,12 @@ export const UserAvatar = () => {
 
   // Logout function (update as needed)
   const handleLogout = () => {
-    console.log("Logging out...");
-    // Perform logout action here
+    if (accounts.length > 0) {
+      console.log("Logging out...");
+      instance.logoutRedirect("http://localhost:3000");
+    }
   };
+  // Perform logout action here
 
   const ThemeSubMenu = () => {
     return (

@@ -1,0 +1,12 @@
+{
+  "Tender_Type": [
+    {
+      "key": "RFT",
+      "value": "Request for Tender"
+    },
+    {
+      "key": "RFP",
+      "value": "Request for Proposal"
+    }
+  ]
+}

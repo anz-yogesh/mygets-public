@@ -7,6 +7,7 @@ const Content = () => {
   return (
     <>
       <div className="contentContainer">
+        <h1>welcome</h1>
         {/* <Marketplace /> */}
         {/* <TenderQueries /> */}
         <Outlet />

@@ -1,5 +1,4 @@
 import React from "react";
-import { Button } from "@fluentui/react-components";
 
 const SupplierDashboard = () => (
   <div>

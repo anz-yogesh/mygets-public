@@ -1,0 +1,54 @@
+{
+  "Product_Category": [
+    {
+      "code": "100",
+      "group": "A",
+      "name": "Raw Materials, Chemicals, Paper, Fuel"
+    },
+    {
+      "code": "101",
+      "group": "B",
+      "name": "Industrial Equipment & Tools"
+    },
+    {
+      "code": "102",
+      "group": "C",
+      "name": "Components & Supplies"
+    },
+    {
+      "code": "103",
+      "group": "D",
+      "name": "Construction, Transportation & Facility Equipment & Supplies"
+    },
+    {
+      "code": "104",
+      "group": "E",
+      "name": "Medical, Laboratory & Test Equipment & Supplies & Pharmaceuticals"
+    },
+    {
+      "code": "105",
+      "group": "F",
+      "name": "Food, Cleaning & Service Industry Equipment & Supplies"
+    },
+    {
+      "code": "106",
+      "group": "G",
+      "name": "Business, Communication & Technology Equipment & Supplies"
+    },
+    {
+      "code": "107",
+      "group": "H",
+      "name": "Defense, Security & Safety Equipment & Supplies"
+    },
+    {
+      "code": "108",
+      "group": "I",
+      "name": "Personal, Domestic & Consumer Equipment & Supplies"
+    },
+    {
+      "code": "109",
+      "group": "J",
+      "name": "Services"
+    }
+  ]
+}

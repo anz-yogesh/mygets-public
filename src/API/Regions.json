@@ -1,0 +1,21 @@
+{
+  "regions": [
+    { "code": "AUK", "name": "Auckland Region", "shortName": "AUK" },
+    { "code": "BOP", "name": "Bay of Plenty Region", "shortName": "BOP" },
+    { "code": "CAN", "name": "Canterbury Region", "shortName": "CAN" },
+    { "code": "CIT", "name": "Chatham Islands", "shortName": "CIT" },
+    { "code": "GIS", "name": "Gisborne District", "shortName": "GIS" },
+    { "code": "HKB", "name": "Hawke's Bay Region", "shortName": "HKB" },
+    { "code": "MWT", "name": "Manawatu-Wanganui Region", "shortName": "MWT" },
+    { "code": "MBH", "name": "Marlborough Region", "shortName": "MBH" },
+    { "code": "NSN", "name": "Nelson Region", "shortName": "NSN" },
+    { "code": "NTL", "name": "Northland Region", "shortName": "NTL" },
+    { "code": "OTA", "name": "Otago Region", "shortName": "OTA" },
+    { "code": "STL", "name": "Southland Region", "shortName": "STL" },
+    { "code": "TKI", "name": "Taranaki Region", "shortName": "TKI" },
+    { "code": "TAS", "name": "Tasman District", "shortName": "TAS" },
+    { "code": "WKO", "name": "Waikato Region", "shortName": "WKO" },
+    { "code": "WGN", "name": "Wellington Region", "shortName": "WGN" },
+    { "code": "WTC", "name": "West Coast Region", "shortName": "WTC" }
+  ]
+}

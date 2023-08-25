@@ -3,12 +3,10 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./error-page";
-
 import { PublicClientApplication, EventType } from "@azure/msal-browser";
-import { BrowserRouter } from "react-router-dom";
+import { MsalProvider } from "@azure/msal-react";
 import { msalConfig } from "./authConfig.js";
 import { Marketplace } from "./Views/Marketplace/Marketplace";
 import BuyerDashboard from "./Views/BuyerDashboard/BuyerDashboard";
@@ -45,7 +43,11 @@ msalInstance.addEventCallback((event) => {
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App instance={msalInstance} />,
+    element: (
+      <MsalProvider instance={msalInstance}>
+        <App />
+      </MsalProvider>
+    ),
     errorElement: <ErrorPage />,
     children: [
       {

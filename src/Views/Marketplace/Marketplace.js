@@ -43,10 +43,7 @@ export const Marketplace = () => {
               <TableHeaderCell key={column.columnKey}>
                 {column.label}
                 {index === 0 && (
-                  <InfoLabel
-                    info="This is a system generate Tender Code!"
-                    required
-                  />
+                  <InfoLabel info="This is a system generate Code." required />
                 )}{" "}
               </TableHeaderCell>
             ))}

@@ -86,6 +86,18 @@ const BuyerDashboard = () => {
               <Option key={options.code}>{options.name}</Option>
             ))}
           </Dropdown>
+          <Label className={styles.label}>Required Pre-qualifications :</Label>
+          <Input placeholder="Required Pre-qualifications..." />
+          <Label className={styles.label}>Contact :</Label>
+          <Input placeholder="Contact..." />
+          <Label className={styles.label}>
+            Alternate Physical Delivery Address{" "}
+          </Label>
+          <Input placeholder="Alternate Physical Delivery Address..." />
+          <Label className={styles.label}>
+            Alternate Physical Fax Number :{" "}
+          </Label>
+          <Input placeholder="Alternate Physical Fax Number..." />
         </CardPreview>
         <CardFooter>
           <Button>Submit</Button>

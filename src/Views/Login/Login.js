@@ -10,7 +10,6 @@ import { Open16Regular } from "@fluentui/react-icons";
 import { Link, NavLink } from "react-router-dom";
 import { Card, CardProps, CardFooter } from "@fluentui/react-components";
 import "./Login.css";
-import Auth from "../../Components/Auth/Auth";
 
 const ASSET_URL =
   "https://raw.githubusercontent.com/microsoft/fluentui/master/packages/react-components/react-card/stories/assets/";
@@ -50,7 +49,6 @@ const Login: React.FC<CardProps> = (props) => {
             Don't have an account?
             <Link to={"/signUp"}> Sign up!</Link>
           </p>
-          <Auth />
         </div>
       </Card>
     </div>

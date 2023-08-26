@@ -8,16 +8,34 @@ import {
   teamsDarkTheme,
 } from "@fluentui/react-components";
 import Auth from "./Components/Auth/Auth.js";
+import {
+  AuthenticatedTemplate,
+  UnauthenticatedTemplate,
+} from "@azure/msal-react";
+
+ 
 
 const App = () => {
+
   return (
     <FluentProvider theme={teamsLightTheme}>
+
       <div className="appContainer">
-        <AppHeader />
-        <Content />
-        <Auth />
+
+        <AuthenticatedTemplate>
+          <AppHeader />
+          <Content />
+        </AuthenticatedTemplate>
+        <UnauthenticatedTemplate>
+
+          <Auth />
+
+        </UnauthenticatedTemplate>
+
       </div>
+
     </FluentProvider>
+
   );
 };
 

@@ -32,10 +32,6 @@ function Auth() {
         Sign Up
       </button>
       <button onClick={handleLogout}>Logout</button>
-
-      <AuthenticatedTemplate>
-        <App />
-      </AuthenticatedTemplate>
     </div>
   );
 }

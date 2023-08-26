@@ -4,6 +4,6 @@
 
 .heading {
   padding-top: 8px;
-  justify-content: center;
-  align-items: center;
+  text-align: center; /* Centers the text horizontally */
+  /* font-weight: bold; Makes the text bold */
 }

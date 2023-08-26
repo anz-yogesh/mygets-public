@@ -58,8 +58,9 @@ export const Marketplace = () => {
               <TableCell>{item.Tender_Type}</TableCell>
               <TableCell>{item.Close_Date}</TableCell>
               <TableCell>{item.Organisation.Name}</TableCell>
-              <TableCell>{item.Organisation.Action}</TableCell>
               <TableCell>
+                {item.Organisation.Action}
+
                 <TableCellLayout
                   media={
                     <Avatar
@@ -79,15 +80,13 @@ export const Marketplace = () => {
                     />
                   }
                 >
-                  <>
-                    <ActionButton
-                      menuOpen={menuOpen}
-                      handleMoreClick={handleMoreClick}
-                      handleMenuClose={handleMenuClose}
-                      selectedItem={selectedItem}
-                      item={item}
-                    />
-                  </>
+                  <ActionButton
+                    menuOpen={menuOpen}
+                    handleMoreClick={handleMoreClick}
+                    handleMenuClose={handleMenuClose}
+                    selectedItem={selectedItem}
+                    item={item}
+                  />
                 </TableCellLayout>
               </TableCell>
             </TableRow>

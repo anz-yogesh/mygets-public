@@ -6,13 +6,14 @@ import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./error-page";
 import { PublicClientApplication, EventType } from "@azure/msal-browser";
-import { MsalProvider } from "@azure/msal-react";
 import { msalConfig } from "./authConfig.js";
+import { MsalProvider } from "@azure/msal-react";
 import { Marketplace } from "./Views/Marketplace/Marketplace";
 import BuyerDashboard from "./Views/BuyerDashboard/BuyerDashboard";
 import SupplierDashboard from "./Views/SupplierDashboard/SupplierDashboard";
 import Setting from "./Views/Setting/Setting";
 import EditProfile from "./Views/EditProfile/EditProfile";
+import Login from "./Views/Login/Login";
 
 /**
  * MSAL should be instantiated outside of the component tree to prevent it from being re-instantiated on re-renders.
@@ -69,6 +70,10 @@ const router = createBrowserRouter([
       {
         path: "setting",
         element: <Setting />,
+      },
+      {
+        path: "login",
+        element: <Login />,
       },
     ],
   },

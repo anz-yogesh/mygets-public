@@ -1,6 +1,7 @@
 import React from "react";
-import { useMsal } from "@azure/msal-react";
+import { AuthenticatedTemplate, useMsal } from "@azure/msal-react";
 import { b2cPolicies } from "../../authConfig";
+import App from "../../App";
 
 function Auth() {
   const { instance, accounts } = useMsal();
@@ -13,11 +14,9 @@ function Auth() {
   };
 
   const handleLogout = () => {
-    if (accounts.length > 0) {
-      instance.logoutPopup({
-        account: accounts[0],
-      });
-    }
+    instance.logoutRedirect().catch((e) => {
+      console.error(e);
+    });
   };
 
   return (
@@ -33,6 +32,10 @@ function Auth() {
         Sign Up
       </button>
       <button onClick={handleLogout}>Logout</button>
+
+      <AuthenticatedTemplate>
+        <App />
+      </AuthenticatedTemplate>
     </div>
   );
 }

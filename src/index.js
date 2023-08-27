@@ -9,6 +9,7 @@ import { PublicClientApplication, EventType } from "@azure/msal-browser";
 import { msalConfig } from "./authConfig.js";
 import { MsalProvider } from "@azure/msal-react";
 import { Marketplace } from "./Views/Marketplace/Marketplace";
+import Tender from "./Views/Marketplace/Tender";
 import BuyerDashboard from "./Views/BuyerDashboard/BuyerDashboard";
 import SupplierDashboard from "./Views/SupplierDashboard/SupplierDashboard";
 import Setting from "./Views/Setting/Setting";
@@ -74,6 +75,10 @@ const router = createBrowserRouter([
       {
         path: "login",
         element: <Login />,
+      },
+      {
+        path: "tenderdetail/:RFx_ID",
+        element: <Tender />,
       },
     ],
   },

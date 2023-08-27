@@ -5,8 +5,9 @@
   "dependencies": {
     "@azure/msal-browser": "~2.31.0",
     "@azure/msal-react": "~1.4.10",
+    "@fluentui/react-breadcrumb-preview": "^0.3.4",
     "@fluentui/react-components": "^9.29.3",
-    "@fluentui/react-datepicker-compat":"",
+    "@fluentui/react-datepicker-compat": "",
     "@fluentui/react-search-preview": "^0.1.8",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -16,7 +17,6 @@
     "react-router-dom": "^6.15.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
-    
   },
   "scripts": {
     "start": "react-scripts start",

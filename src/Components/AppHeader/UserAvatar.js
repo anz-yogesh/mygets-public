@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext,  useEffect } from "react";
 import {
   Avatar,
   Menu,
@@ -10,9 +10,7 @@ import {
   MenuDivider,
   MenuGroup,
   MenuGroupHeader,
-  Label,
 } from "@fluentui/react-components";
-import { teamsLightTheme, teamsDarkTheme } from "@fluentui/react-components";
 import { Link } from "react-router-dom";
 import {
   SignOut24Filled,
@@ -20,8 +18,15 @@ import {
 } from "@fluentui/react-icons";
 import { useMsal } from "@azure/msal-react";
 import { ThemeContext } from "../../App";
+import { useCookies } from "react-cookie";
+import { teamsLightTheme, teamsDarkTheme } from "@fluentui/react-components";
+import Logout from "./Logout";
 
-// Helper Component: Theme Sub-Menu
+
+
+// Constants
+const POST_LOGOUT_REDIRECT_URI = "https://jgkdrj-3000.csb.app";
+
 const ThemeSubMenu = ({ setTheme }) => (
   <Menu>
     <MenuTrigger disableButtonEnhancement>
@@ -38,16 +43,16 @@ const ThemeSubMenu = ({ setTheme }) => (
   </Menu>
 );
 
-// Main Component: User Avatar
 export const UserAvatar = () => {
   const { theme, setTheme } = useContext(ThemeContext);
   const { instance, accounts } = useMsal();
-  const fullName = accounts[0]?.name || "Unknown User";
-  const [firstName, lastName] = fullName.split(" "); // Fetch user names from token
-  const userEmail = accounts[0]?.username || "Unknown Email"; // Fetch user email
-  const [accessToken, setAccessToken] = useState(null); // Manage the access token
+  const { cookies, setCookie, removeCookie } = useCookies(["myGetsToken"]);
 
-  // Define navigation links and settings
+  const user = accounts[0];
+  const fullName = user?.name || "Unknown User";
+  const [firstName, lastName] = fullName.split(" ");
+  const userEmail = user?.username || "Unknown Email";
+
   const navigationLinks = [
     { path: "/marketplace", label: "Marketplace" },
     { path: "/buyerdashboard", label: "Buyer Dashboard" },
@@ -59,33 +64,40 @@ export const UserAvatar = () => {
     },
   ];
 
-  // Define logout behavior
-  const handleLogout = () => {
-    if (accounts.length > 0) {
-      instance.logoutRedirect({
-        postLogoutRedirectUri: "http://localhost:3000",
-      });
+  const handleLogout = async () => {
+    try {
+      if (user) {
+        await instance.logoutRedirect({
+          postLogoutRedirectUri: POST_LOGOUT_REDIRECT_URI,
+        });
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 
-  // Define the 'request' object within the UserAvatar component
   const request = {
-    scopes: ["User.Read"], // define your scopes here
-    account: accounts.length > 0 ? accounts[0] : null,
+    scopes: ["User.Read"],
+    account: user || null,
   };
 
-  // Fetch the access token silently
-  if (request.account) {
-    instance
-      .acquireTokenSilent(request)
-      .then((response) => {
-        console.log("Access Token:", response.accessToken);
-      })
-      .catch((error) => {
-        console.error("Failed to acquire token silently:", error);
-        // Additional error handling here
-      });
-  }
+  useEffect(() => {
+    if (request.account) {
+      instance
+        .acquireTokenSilent(request)
+        .then((response) => {
+          console.log("Successfully acquired token:", response.accessToken);
+        })
+        .catch((error) => {
+          console.error("Failed to acquire token silently:", error);
+  
+          // Print scopes for debugging
+          console.log("Requested Scopes:", request.scopes);
+  
+          // Ensure that the scopes you are requesting match what's configured in Azure AD B2C
+        });
+    }
+  }, [request, instance]);
 
   return (
     <Menu>
@@ -107,9 +119,11 @@ export const UserAvatar = () => {
         <MenuDivider appearance="brand" />
         <MenuGroupHeader>Dashboard</MenuGroupHeader>
         <MenuList>
-          <Link to="/editprofile" style={{ textDecoration: "none" }}>
-            <MenuItem>Edit Profile</MenuItem>
-          </Link>
+          {user && (
+            <Link to="/editprofile" className="no-decoration">
+              <MenuItem>Edit Profile</MenuItem>
+            </Link>
+          )}
           <ThemeSubMenu setTheme={setTheme} />
           <MenuDivider />
           <MenuGroup>
@@ -118,16 +132,14 @@ export const UserAvatar = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                style={{ textDecoration: "none" }}
+                className="no-decoration"
               >
                 <MenuItem icon={link.icon}>{link.label}</MenuItem>
               </Link>
             ))}
           </MenuGroup>
           <MenuDivider appearance="brand" />
-          <MenuItem icon={<SignOut24Filled />} onClick={handleLogout}>
-            Logout
-          </MenuItem>
+          {user && <Logout />} 
         </MenuList>
       </MenuPopover>
     </Menu>

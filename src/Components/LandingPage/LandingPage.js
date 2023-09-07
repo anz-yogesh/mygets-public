@@ -1,70 +1,24 @@
-// src/pages/LandingPage.js
-import React, { useEffect } from 'react'
-import { Card, Text, Button, Image } from "@fluentui/react-components";
-import { makeStyles } from "@fluentui/react-components";
+import React, { useEffect } from 'react';
+import { Card, Button, Image } from "@fluentui/react-components";
 import { useMsal } from "@azure/msal-react";
 import { b2cPolicies } from "../../authConfig";
 import { useCookies } from 'react-cookie';
 import { createBrowserHistory } from 'history';
 
-const useStyles = makeStyles({
-  container: {
-    padding: "50px",
-  },
-  heroSection: {
-    textAlign: "center",
-    backgroundColor: "#f2f2f2",
-    padding: "20px",
-    borderRadius: "8px",
-  },
-  featureSection: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: "20px 0",
-    borderBottom: "1px solid #ccc",
-  },
-  featureText: {
-    maxWidth: "400px",
-  },
-  ctaButton: {
-    alignSelf: "center",
-    backgroundColor: "#0078D4",
-    color: "#fff",
-  },
-  signInButton: {
-    backgroundColor: "#0078D4",
-    color: "#fff",
-  },
-});
-
 
 const LandingPage = () => {
   const history = createBrowserHistory();
-   const { instance, accounts } = useMsal()
-    const [cookies, setCookie, removeCookie] = useCookies(['myGetsToken'])
-  const styles = useStyles();
+  const { instance, accounts } = useMsal();
+  const [cookies, setCookie, removeCookie] = useCookies(['myGetsToken']);
 
-  // const handleAuth = async (authority) => {
-  //   try {
-  //     await instance.loginPopup({
-  //       authority,
-  //       scopes: ["openid", "profile", "offline_access"],
-  //     });
-  //   } catch (error) {
-  //     console.error("Authentication failed: ", error);
-  //   }
-  // };
-
-    // checks if user is logged in. If not, remove cookie
   useEffect(() => {
     if (accounts.length === 0) {
-      removeCookie('myGetsToken')
+      removeCookie('myGetsToken');
     }
-  }, [accounts.length, removeCookie])
+  }, [accounts.length, removeCookie]);
 
-    // login function
-const handleAuth = async (authority) => {
+  // Login function
+  const handleAuth = async (authority) => {
     try {
       const myGetsAuth = await instance.loginPopup({
         authority,
@@ -80,69 +34,70 @@ const handleAuth = async (authority) => {
   };
 
   return (
-    <div>
-      <Button
-        className={styles.signInButton}
-        onClick={() => handleAuth(b2cPolicies.authorities.signIn.authority)}
-      >
-        Sign In
-      </Button>
+    <div className="bg-gray-100 min-h-screen">
+      <header className="bg-indigo-900 h-12 flex justify-between items-center shadow-md">
+        <div>
+          <Button
+            className="bg-blue-600 text-white px-4 py-2 rounded mr-2"
+            onClick={() => handleAuth(b2cPolicies.authorities.signIn.authority)}
+          >
+            Sign In
+          </Button>
 
-      <Button
-        className={styles.signInButton}
-        onClick={() => handleAuth(b2cPolicies.authorities.signUp.authority)}
-      >
-        Sign Up
-      </Button>
+          <Button
+            className="bg-blue-600 text-white px-4 py-2 rounded"
+            onClick={() => handleAuth(b2cPolicies.authorities.signUp.authority)}
+          >
+            Sign Up
+          </Button>
+        </div>
+      </header>
 
-      <Card className={styles.container}>
-        {/* Hero Section */}
-        <Card className={styles.heroSection}>
-          <Text variant="xxLarge">Welcome to MyGets</Text>
-          <Text variant="medium">
+      <main className="p-4">
+        <section className="bg-gray-200 rounded p-4 mb-4">
+          <h1 className="text-6xl font-bold">Welcome to MyGets</h1>
+          <p className="text-base text-center">
             Your trusted platform for seamless transactions.
-          </Text>
-          <Button className={styles.ctaButton}>Get Started</Button>
-        </Card>
+          </p>
+          <Button className="bg-blue-600 text-white mt-4 mx-auto block">Get Started</Button>
+        </section>
 
-        {/* Feature Section */}
-        <Card className={styles.featureSection}>
-          <Text className={styles.featureText} variant="large">
-            Feature 1: High Security
-            <Text variant="medium">
+        <section className="bg-white rounded p-4 mb-4 flex items-center justify-between">
+          <div className="max-w-md">
+            <h2 className="text-2xl font-semibold">Feature 1: High Security</h2>
+            <p className="text-base">
               Leveraging Azure AD B2C, we ensure your data is secure.
-            </Text>
-          </Text>
-          <Image src="/path/to/feature1-image.jpg" alt="Feature 1" />
-        </Card>
+            </p>
+          </div>
+          <Image src={`https://picsum.photos/400/300?random=1`} alt="Feature 1" />
 
-        <Card className={styles.featureSection}>
-          <Image src="/path/to/feature2-image.jpg" alt="Feature 2" />
-          <Text className={styles.featureText} variant="large">
-            Feature 2: Scalability
-            <Text variant="medium">
+        </section>
+
+        <section className="bg-white rounded p-4 mb-4 flex items-center justify-between">
+        <Image src={`https://picsum.photos/400/300?random=2`} alt="Feature 2" />
+          <div className="max-w-md">
+            <h2 className="text-2xl font-semibold">Feature 2: Scalability</h2>
+            <p className="text-base">
               Built on Azure's serverless architecture for seamless scalability.
-            </Text>
-          </Text>
-        </Card>
+            </p>
+          </div>
+        </section>
 
-        {/* Additional Features */}
-        <Card className={styles.featureSection}>
-          <Text className={styles.featureText} variant="large">
-            Feature 3: Multi-Tenancy
-            <Text variant="medium">
+        <section className="bg-white rounded p-4 mb-4 flex items-center justify-between">
+          <div className="max-w-md">
+            <h2 className="text-2xl font-semibold">Feature 3: Multi-Tenancy</h2>
+            <p className="text-base">
               Effortlessly manage multiple clients under a single account.
-            </Text>
-          </Text>
-          <Image src="/path/to/feature3-image.jpg" alt="Feature 3" />
-        </Card>
+            </p>
+          </div>
+          <Image src={`https://picsum.photos/400/300?random=3`} alt="Feature 3" />
+        </section>
 
-        {/* CTA Section */}
-        <Card className={styles.heroSection}>
-          <Text variant="xxLarge">Ready to Dive In?</Text>
-          <Button className={styles.ctaButton}>Join Now</Button>
-        </Card>
-      </Card>
+        <section className="bg-gray-200 rounded p-4">
+          <p className="text-4xl text-center">Ready to Dive In?</p>
+          <Button className="bg-blue-600 text-white mt-4 mx-auto block">Join Now</Button>
+        </section>
+      </main>
     </div>
   );
 };

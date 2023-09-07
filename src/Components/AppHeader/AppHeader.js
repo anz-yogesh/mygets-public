@@ -19,14 +19,14 @@ const AppHeaderBar = () => {
   return (
     <>
       {/* Header Section */}
-      <div className="container">
+      <div className="w-full h-12 bg-indigo-900 fixed top-0 left-0 z-10 flex justify-between items-center shadow-md">
         <div className="appHeaderLeft">
           <h3 className="title">MYGETS</h3>
         </div>
         <div className="appHeaderCenter">
           <Search />
         </div>
-        <div className="appHeaderRight">
+        <div className="content">
           <Bot24Regular
             aria-label="A Bot icon"
             style={{ color: "#f5f5f5f5" }}
